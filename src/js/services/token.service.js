@@ -8,6 +8,10 @@ function TokenService($window) {
 
   self.setToken = (token) => {
     return $window.localStorage.setItem('auth-token', token);
-  }
+  };
+
+  self.getToken = () => {
+    return $window.localStorage.getItem('auth-token');
+  };
 
 }
