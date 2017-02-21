@@ -46,6 +46,18 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     templateUrl: '/js/views/jobs/edit.html',
     controller: 'JobsEditCtrl',
     controllerAs: 'jobsEdit'
+  })
+  .state('usersShow', {
+    url: '/users/:id',
+    templateUrl: 'js/views/users/show.html',
+    controller: 'UsersShowCtrl',
+    controllerAs: 'usersShow'
+  })
+  .state('usersEdit', {
+    url: '/users/:id',
+    templateUrl: 'js/views/users/edit.html',
+    controller: 'UsersEditCtrl',
+    controllerAs: 'usersEdit'
   });
 
 }
