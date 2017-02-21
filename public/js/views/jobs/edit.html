@@ -1,0 +1,20 @@
+<h1>Edit Job</h1>
+{{ jobsNew.job }}
+<form ng-submit="jobsEdit.updateJob()">
+  <div class="form-group">
+    <input class="form-control" type="text" name="title" ng-model="jobsEdit.job.title" placeholder="Job title" value="{{ jobsEdit.job.title }}">
+  </div>
+  <div class="form-group">
+    <input class="form-control" type="text" name="location" ng-model="jobsEdit.job.location" placeholder="Location" value="{{ jobsEdit.job.location }}">
+  </div>
+  <div class="form-group">
+    <input class="form-control" type="text" name="postcode" ng-model="jobsEdit.job.postcode" placeholder="Postcode" value="{{ jobsEdit.job.postcode }}">
+  </div>
+  <div class="form-group">
+    <input class="form-control" type="text" name="description" ng-model="jobsEdit.job.description" placeholder="Description" value="{{ jobsEdit.job.description }}">
+  </div>
+  <div class="form-group">
+    <input class="form-control" type="text" name="time" ng-model="jobsEdit.job.time" placeholder="Time + Date" value="{{ jobsEdit.job.time }}">
+  </div>
+  <input class="btn btn-primary" type="submit" value="Submit" />
+</form>

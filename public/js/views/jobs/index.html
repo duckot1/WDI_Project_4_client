@@ -1,3 +1,6 @@
+<h1>index</h1>
 <ul>
-  <li ng-repeat="job in jobsIndex.jobs">{{ job.title }}</li>
+  <li ng-repeat="job in jobsIndex.jobs">
+    <a ui-sref="jobsShow({id: job.id})">{{ job.title }}</a>
+  </li>
 </ul>

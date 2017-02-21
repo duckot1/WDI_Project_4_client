@@ -5,5 +5,7 @@ angular
 jobFactory.$inject = ['API', '$resource'];
 
 function jobFactory(API, $resource) {
-  return $resource(`${API}/jobs/:id`, { id: '@_id'}, {});
+  return $resource(`${API}/jobs/:id`, { id: '@_id'}, {
+    update: { method: 'PUT', url: `${API}/jobs/:id` }
+  });
 }

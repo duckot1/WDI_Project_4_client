@@ -34,6 +34,18 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     templateUrl: '/js/views/jobs/new.html',
     controller: 'JobsNewCtrl',
     controllerAs: 'jobsNew'
+  })
+  .state('jobsShow', {
+    url: '/jobs/:id',
+    templateUrl: '/js/views/jobs/show.html',
+    controller: 'JobsShowCtrl',
+    controllerAs: 'jobsShow'
+  })
+  .state('jobsEdit', {
+    url: '/jobs/:id/edit',
+    templateUrl: '/js/views/jobs/edit.html',
+    controller: 'JobsEditCtrl',
+    controllerAs: 'jobsEdit'
   });
 
 }
