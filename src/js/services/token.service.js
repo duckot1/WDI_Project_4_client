@@ -1,6 +1,6 @@
 angular
-  .module('jobsApp')
-  .service('TokenService', TokenService);
+.module('jobsApp')
+.service('TokenService', TokenService);
 
 TokenService.$inject = ['$window', 'jwtHelper'];
 function TokenService($window, jwtHelper) {
@@ -17,6 +17,10 @@ function TokenService($window, jwtHelper) {
   self.decodeToken = () => {
     const token = self.getToken();
     return token ? jwtHelper.decodeToken(token) : null;
+  };
+
+  self.removeToken = () => {
+    $window.localStorage.clear();
   };
 
 }

@@ -1,10 +1,10 @@
 angular
- .module('jobsApp')
- .service('CurrentUserService', CurrentUserService);
+.module('jobsApp')
+.service('CurrentUserService', CurrentUserService);
 
-CurrentUserService.$inject = ['TokenService', 'User'];
+CurrentUserService.$inject = ['TokenService', 'User', '$rootScope'];
 
-function CurrentUserService(TokenService, User) {
+function CurrentUserService(TokenService, User, $rootScope) {
   const self = this;
 
   self.getUser = () => {
@@ -13,11 +13,18 @@ function CurrentUserService(TokenService, User) {
 
     if (decoded) {
       User
-        .get({ id: decoded.id }).$promise
-        .then(data => {
-          console.log(data);
-        });
+      .get({ id: decoded.id }).$promise
+      .then(data => {
+        self.currentUser = data;
+        $rootScope.$broadcast('loggedIn');
+      });
     }
+  };
+
+  self.removeUser = () => {
+    self.currentUser = null;
+    TokenService.removeToken();
+    $rootScope.$broadcast('loggedOut');
   };
 
 }

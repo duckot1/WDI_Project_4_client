@@ -3,15 +3,16 @@ angular
   .module('jobsApp')
   .controller('RegisterCtrl', RegisterCtrl);
 
-RegisterCtrl.$inject = ['User'];
-function RegisterCtrl(User){
+RegisterCtrl.$inject = ['User', 'CurrentUserService', '$state'];
+function RegisterCtrl(User, CurrentUserService, $state){
   const vm = this;
 
   vm.register = () => {
     User
       .register(vm.user).$promise
-      .then((data) => {
-        console.log(data);
+      .then(() => {
+        CurrentUserService.getUser();
+        $state.go('jobsIndex');
       }, err => {
         console.log(err);
       });
