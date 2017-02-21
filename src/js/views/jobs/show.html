@@ -1,5 +1,6 @@
 <h1>Show</h1>
 <ul>
   <li>{{ jobsShow.job.title }}</li>
-  <a ui-sref="jobsEdit({id: jobsShow.job.id})">Edit</a>
+  <button><a ui-sref="jobsEdit({id: jobsShow.job.id})">Edit</a></button>
+  <button ng-click="jobsShow.delete()">Delete</button>
 </ul>
