@@ -28,6 +28,12 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     templateUrl: '/js/views/jobs/index.html',
     controller: 'JobsIndexCtrl',
     controllerAs: 'jobsIndex'
+  })
+  .state('jobsNew', {
+    url: '/jobs/new',
+    templateUrl: '/js/views/jobs/new.html',
+    controller: 'JobsNewCtrl',
+    controllerAs: 'jobsNew'
   });
 
 }

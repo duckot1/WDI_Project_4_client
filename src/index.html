@@ -38,7 +38,10 @@
                 <a ui-sref="login">Login</a>
               </li>
               <li ng-show="main.user">
-                <a ui-sref="usersIndex">Users</a>
+                <a ui-sref="jobsIndex">Jobs</a>
+              </li>
+              <li ng-show="main.user">
+                <a ui-sref="jobsNew">Add Job</a>
               </li>
               <li ng-show="main.user">
                 <a ng-click="main.logout()">Logout</a>
