@@ -6,6 +6,7 @@ JobsShowCtrl.$inject = ['Job', '$stateParams', '$state'];
 
 function JobsShowCtrl(Job, $stateParams, $state) {
   const vm = this;
+  console.log($stateParams);
   vm.job = Job.get($stateParams);
 
   vm.delete = function() {
