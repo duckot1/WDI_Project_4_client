@@ -2,11 +2,13 @@
   <div class="col-md-6 col-md-offset-3">
     <section ng-if="myJobs.active">
       <a class="switchMessage" ng-click="myJobs.showApplied()">Applied</a>
+      <a class="switchMessage" ng-click="myJobs.showActive()">Active</a>
       <a class="switchMessage" ng-click="myJobs.showBooked()">Booked</a>
       <div ng-controller="ActiveCtrl as active" ng-include src="'/js/views/dashboard/active.html'"></div>
     </section>
 
     <section ng-if="myJobs.applied">
+      <a class="switchMessage" ng-click="myJobs.showApplied()">Applied</a>
       <a class="switchMessage" ng-click="myJobs.showActive()">Active</a>
       <a class="switchMessage" ng-click="myJobs.showBooked()">Booked</a>
       <div ng-controller="AppliedCtrl as applied" ng-include src="'/js/views/dashboard/applied.html'"></div>
@@ -15,6 +17,7 @@
     <section ng-if="myJobs.booked">
       <a class="switchMessage" ng-click="myJobs.showApplied()">Applied</a>
       <a class="switchMessage" ng-click="myJobs.showActive()">Active</a>
+      <a class="switchMessage" ng-click="myJobs.showBooked()">Booked</a>
       <div ng-controller="BookedCtrl as booked" ng-include src="'/js/views/dashboard/booked.html'"></div>
     </section>
   </div>

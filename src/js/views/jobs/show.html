@@ -3,6 +3,38 @@
   <li>{{ jobsShow.job.title }}</li>
   <button><a ui-sref="jobsEdit({id: jobsShow.job.id})">Edit</a></button>
   <button ng-click="jobsShow.delete()">Delete</button>
-  <button ng-click="jobsShow.apply()">Apply</button>
   <button><a ui-sref="jobApplications({ id: jobsShow.job.id })">Applications</a></button>
+
+  <button class="btn btn-warning" ng-click="jobsShow.reviewTasker()">Completed</button>
+
+  <button class="btn btn-warning" ng-click="jobsShow.applicationForm()">Apply</button>
+
+  <div>
+    <div class="row lead">
+      <div id="stars" class="starrr"></div>
+      You gave a rating of <span id="count">0</span> star(s)
+    </div>
+    <div ng-if="jobsShow.showReviewModal" class="container">
+      <form class="messageForm animated zoomIn" ng-submit="jobsShow.complete()">
+        <div class="form-group">
+          <input class="form-control requestMessage" type="text" name="reviewMessage" ng-model="jobsShow.review.message" placeholder="Write your message here" >
+        </div>
+        <div>
+          <input class="btn btn-primary btn-block" type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div ng-if="jobsShow.showApplicationModal">
+
+    <form class="messageForm animated zoomIn" ng-submit="jobsShow.apply()">
+      <div class="form-group">
+        <input class="form-control requestMessage" type="text" name="requestMessage" ng-model="jobsShow.application.message" placeholder="Write your message here" >
+      </div>
+      <input class="btn btn-primary btn-block" type="submit" value="Submit">
+    </form>
+  </div>
+
 </ul>

@@ -2,5 +2,6 @@ angular
   .module('jobsApp', [
     'ui.router',
     'ngResource',
-    'angular-jwt'
+    'angular-jwt',
+    'ui.bootstrap'
   ]);

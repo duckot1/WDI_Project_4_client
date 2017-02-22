@@ -9,8 +9,6 @@ function CurrentUserService(TokenService, User, $rootScope) {
 
   self.getUser = () => {
     const decoded = TokenService.decodeToken();
-    console.log(decoded);
-
     if (decoded) {
       User
       .get({ id: decoded.id }).$promise
@@ -27,4 +25,5 @@ function CurrentUserService(TokenService, User, $rootScope) {
     $rootScope.$broadcast('loggedOut');
   };
 
+  self.getUser();
 }
