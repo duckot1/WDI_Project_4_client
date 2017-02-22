@@ -2,9 +2,9 @@ angular
   .module('jobsApp')
   .controller('JobApplicationsCtrl', JobApplicationsCtrl);
 
-JobApplicationsCtrl.$inject = ['Job', '$stateParams'];
+JobApplicationsCtrl.$inject = ['Job', 'Request', '$stateParams'];
 
-function JobApplicationsCtrl(Job, $stateParams) {
+function JobApplicationsCtrl(Job, Request, $stateParams) {
   const vm = this;
   Job
     .jobApplications($stateParams)
@@ -15,4 +15,16 @@ function JobApplicationsCtrl(Job, $stateParams) {
     }, err => {
       console.log(err);
     });
+
+  vm.accept = function(application) {
+    const id = { id: application.id };
+    Request
+      .update(id, application)
+      .$promise
+      .then(data => {
+        console.log(data);
+      }, err => {
+        console.log(err);
+      });
+  };
 }
