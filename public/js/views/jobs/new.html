@@ -13,8 +13,8 @@
   <div class="form-group">
     <input class="form-control" type="text" name="description" ng-model="jobsNew.job.description" placeholder="Description">
   </div>
-  <div class="form-group">
-    <input class="form-control" type="text" name="time" ng-model="jobsNew.job.time" placeholder="Time + Date">
+  <div class="input-group date" id="datetimepicker1">
+    <datetimepicker data-ng-model="jobsNew.job.datetime" data-on-set-time="jobsNew.onTimeSet(newDate)" data-datetimepicker-config="{ dropdownSelector: '.dropdown-toggle' }"></datetimepicker>
   </div>
   <input class="btn btn-primary" type="submit" value="Submit" />
 </form>

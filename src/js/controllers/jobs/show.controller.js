@@ -2,9 +2,9 @@ angular
   .module('jobsApp')
   .controller('JobsShowCtrl', JobsShowCtrl);
 
-JobsShowCtrl.$inject = ['Job', '$stateParams', '$state'];
+JobsShowCtrl.$inject = ['Job', '$stateParams', '$state', 'Review'];
 
-function JobsShowCtrl(Job, $stateParams, $state) {
+function JobsShowCtrl(Job, $stateParams, $state, Review) {
   const vm = this;
   console.log($stateParams);
   vm.job = Job.get($stateParams);
@@ -47,10 +47,10 @@ function JobsShowCtrl(Job, $stateParams, $state) {
 
   vm.complete = function() {
     const rating = $('#count').html();
-    vm.review.rating = rating;
+    
     vm.job.status = 'finished';
-    console.log(vm.review);
     console.log(vm.job);
+
     Job
       .update($stateParams, vm.job)
       .$promise
@@ -60,6 +60,18 @@ function JobsShowCtrl(Job, $stateParams, $state) {
         console.log(err);
       });
 
+    vm.review.rating = rating;
+    vm.review.job_id = vm.job.id;
+    vm.review.user_id = vm.job.tasker_id;
+    console.log(vm.review);
+    Review
+      .save(vm.review)
+      .$promise
+      .then(data => {
+        console.log(data);
+      }, err => {
+        console.log(err);
+      });
   };
 
 

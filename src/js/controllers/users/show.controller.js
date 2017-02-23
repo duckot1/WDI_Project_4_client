@@ -2,9 +2,9 @@ angular
 .module('jobsApp')
 .controller('UsersShowCtrl', UsersShowCtrl);
 
-UsersShowCtrl.$inject = ['User', '$stateParams', '$state', 'CurrentUserService'];
+UsersShowCtrl.$inject = ['User', '$stateParams', '$state', 'CurrentUserService', 'Review'];
 
-function UsersShowCtrl(User, $stateParams, $state, CurrentUserService) {
+function UsersShowCtrl(User, $stateParams, $state, CurrentUserService, Review) {
   const vm = this;
 
   User
@@ -16,6 +16,17 @@ function UsersShowCtrl(User, $stateParams, $state, CurrentUserService) {
   }, err => {
     console.log(err);
   });
+
+
+  User
+    .userReviews($stateParams)
+    .$promise
+    .then(data => {
+      console.log(data);
+    }, err => {
+      console.log(err);
+    });
+
 
   vm.delete = function() {
     User.delete($stateParams).$promise.then(() => {

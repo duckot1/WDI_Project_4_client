@@ -6,7 +6,13 @@
   <script src="https://use.fontawesome.com/f1a13dd80b.js"></script>
   <script src="./js/reviews/reviewBox.js" charset="utf-8"></script>
   <script src="./js/navbar/navbar.js" charset="utf-8"></script>
+  <script type="text/javascript" src="node_modules/moment/moment.js"></script>
+  <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+  <script type="text/javascript" src="node_modules/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
+  <script type="text/javascript" src="node_modules/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js"></script>
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="node_modules/angular-bootstrap-datetimepicker/src/css/datetimepicker.css"/>
   <base href="/" />
   <!-- inject:js -->
   <script src="js/app.js"></script>
@@ -36,7 +42,10 @@
         </div>
         <!-- Sidebar brand name -->
         <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-          john.doe@gmail.com
+          <ul>
+            <li class="stars" ng-repeat="star in main.stars track by $index"><img class="star" src="http://kingofwallpapers.com/black-star/black-star-003.jpg"></span></li>
+            <!-- <li ng-repeat="main.blanks"><span class="star"></span></li> -->
+          </ul>
           <b class="caret"></b>
         </a>
       </div>
@@ -80,7 +89,7 @@
     <div class="wrapper">
       <div class="constructor">
         <main class="container" ui-view></main>
-        <!-- <h2 class="headline">Material Sidebar (Profile menu)</h2>
+        <h2 class="headline">Material Sidebar (Profile menu)</h2>
         <p class="subhead">Based on <a href="https://www.google.com/design/spec/material-design/introduction.html" target="_blank">Material Design by Google</a>.</p>
         <p>Icons from <a href="http://zavoloklom.github.io/material-design-iconic-font" target="_blank">Material Design Iconic Font</a></p>
         <p>Tested on Win8.1 with browsers: Chrome 37,  Firefox 32, Opera 25, IE 11, Safari 5.1.7</p>
@@ -114,7 +123,7 @@
             <option value="">Color cover</option>
           </select>
         </p>
-        <p><button class="sidebar-toggle">Toggle sidebar</button></p> -->
+        <p><button class="sidebar-toggle">Toggle sidebar</button></p>
       </div>
     </div>
   </header>

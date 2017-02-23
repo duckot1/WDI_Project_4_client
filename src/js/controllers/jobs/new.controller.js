@@ -8,6 +8,11 @@ function JobsNewCtrl(Job, $state) {
   const vm = this;
   vm.job = {};
 
+  vm.onTimeSet = function (newDate, oldDate) {
+    console.log(newDate);
+  };
+
+
   vm.addJob = () => {
     Job
     .save(vm.job)
