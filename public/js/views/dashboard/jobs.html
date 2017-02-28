@@ -1,23 +1,36 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+
+<div class="col-lg-6 col-sm-6">
+  <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+    <div class="btn-group" role="group">
+      <button ng-click="myJobs.showApplied()" type="button" id="stars" class="btn btn-default" href="#tab1" data-toggle="tab">
+        <div class="hidden-xs">Applied</div>
+      </button>
+    </div>
+    <div class="btn-group" role="group">
+      <button ng-click="myJobs.showActive()" type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab">
+        <div class="hidden-xs">Posted</div>
+      </button>
+    </div>
+    <div class="btn-group" role="group">
+      <button ng-click="myJobs.showBooked()" type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab">
+        <div class="hidden-xs">Booked In</div>
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<div style="margin-top: 70px">
+  <div>
     <section ng-if="myJobs.active">
-      <a class="switchMessage" ng-click="myJobs.showApplied()">Applied</a>
-      <a class="switchMessage" ng-click="myJobs.showActive()">Active</a>
-      <a class="switchMessage" ng-click="myJobs.showBooked()">Booked</a>
       <div ng-controller="ActiveCtrl as active" ng-include src="'/js/views/dashboard/active.html'"></div>
     </section>
 
-    <section ng-if="myJobs.applied">
-      <a class="switchMessage" ng-click="myJobs.showApplied()">Applied</a>
-      <a class="switchMessage" ng-click="myJobs.showActive()">Active</a>
-      <a class="switchMessage" ng-click="myJobs.showBooked()">Booked</a>
+    <section ng-if="myJobs.applied" ng-controller="AppliedCtrl as applied" ng-include src="'/js/views/dashboard/applied.html'">
       <div ng-controller="AppliedCtrl as applied" ng-include src="'/js/views/dashboard/applied.html'"></div>
     </section>
 
     <section ng-if="myJobs.booked">
-      <a class="switchMessage" ng-click="myJobs.showApplied()">Applied</a>
-      <a class="switchMessage" ng-click="myJobs.showActive()">Active</a>
-      <a class="switchMessage" ng-click="myJobs.showBooked()">Booked</a>
       <div ng-controller="BookedCtrl as booked" ng-include src="'/js/views/dashboard/booked.html'"></div>
     </section>
   </div>

@@ -1,5 +1,13 @@
-<h1>Pending Applications</h1>
-<div ng-repeat="application in jobApplications.applications">
-  <h2>{{ application.message }}</h2>
-  <button ng-click="jobApplications.accept(application)">Hire!</button>
-</div>
+<ul>
+  <li ng-repeat="applications in jobApplications.applications">
+    <img ui-sref="usersShow({ id: applications.user.id })" class="email-picture" src="{{applications.user.image}}">
+    <div class="message-content">
+      <a class="firstName" ui-sref="usersShow({ id: applications.user.id })"> {{applications.user.first_name}} {{applications.user.last_name}}</a>
+      <p class="pending"><b>Rating:</b> {{applications.user.rating}}</p>
+      <br>
+      <a class="eventName" ui-sref="jobsShow({id: applications.job_id})">{{applications.job.title}}</a>
+      <p>{{applications.message}}</p>
+      <button ng-if="jobApplications.hideOnAccept(applications.status)" class="btn btn-default emailAccept" ng-click="jobApplications.accept(applications)">Hire!</button>
+    </div>
+  </li>
+</ul>

@@ -1,121 +1,68 @@
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<div>
-  <p><button class="sidebar-toggle">Toggle sidebar</button></p>
-</div>
-
 <div class="container">
-  <div class="row">
-    <div class="box">
-      <div class="box-header">
-        <div class="header-item">
-          <h3>Havana, Cuba</h3>
+    <div class="row">
+        <div class="card-size col-md-6 col-md-offset-3">
+            <div class="card">
+                <!-- <div class="card-image">
+                    <img class="img-responsive" src="{{jobsShow.job.image}}">
+                </div> -->
+
+                <div class="card-content">
+                    <span class="card-title">{{ jobsShow.job.title }}</span>
+                </div><!-- card content -->
+                <div class="card-action">
+                  <h4>Description:</h4>
+                  <p>{{jobsShow.job.description}}</p>
+                  <h4>Time:</h4>
+                  <p>{{jobsShow.job.datetime}}</p>
+                  <h4>Rate:</h4>
+                  <p>£{{jobsShow.job.rate}}ph</p>
+                  <h4>Location:</h4>
+                  <p>{{jobsShow.job.location}}</p>
+                </div>
+                <div class="card-action">
+                  <h4>Tasker:</h4>
+                  <div class="">
+                    <a ui-sref="usersShow({id: jobsShow.job.tasker_id})">{{ jobsShow.job.tasker.first_name }} {{ jobsShow.job.tasker.last_name }}</a>
+                  </div>
+                  <div style="margin-left: 5px; margin-top: 5px" class="row lead">
+                    <div id="stars" class="starrr"></div>
+                    <span style="font-size: 0px" id="count">0</span>
+                  </div>
+                </div>
+                <div class="card-action">
+                    <a ng-if="jobsShow.editToggle" ui-sref="jobsEdit({id: jobsShow.job.id})">Edit</a>
+                    <a ng-if="jobsShow.deleteToggle" ng-click="jobsShow.delete()" ui-sref="jobsIndex" target="new_blank">Delete</a>
+                    <a ng-if="jobsShow.applicationsToggle" ui-sref="jobApplications({ id: jobsShow.job.id })">Applications</a>
+                    <button ng-if="jobsShow.interestedToggle" class="btn btn-new" ng-click="jobsShow.applicationForm()">Apply</button>
+                    <button ng-if="jobsShow.completedToggle" class="btn btn-new" ng-click="jobsShow.reviewTasker()">Completed</button>
+                </div><!-- card actions -->
+                <div class="card-reveal">
+                    <span class="card-title">Card Title</span> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div><!-- card reveal -->
+            </div>
         </div>
-        <div class="header-item"><span aria-hidden="true" class="fa fa-credit-card"></span><span>$277</span></div>
-        <div class="header-item"><span aria-hidden="true" class="fa fa-calendar"></span><span>Departs Tuesday @ 12:00 AM</span></div>
-        <div class="header-item"></div>
-      </div>
-      <div class="content">
-        <div class="left">
-          <div class="thumbnail-wrapper">
-            <div class="thumbnail-overlay">
-              <div class="thumbnail-overlay-inner"><span><i class="fa fa-cloud jXSmKo" aria-hidden="true"></i>Mostly Cloudy</span><span><i class="fa fa-thermometer-empty" aria-hidden="true"></i>65.0 F (18.3 C)</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="right">
-          <div class="map"><span class="origin">WASA</span>
-            <div class="point"></div>
-            <div class="line"></div>
-            <div class="point"></div><span class="destination">HAV</span></div>
-          <table>
-            <tbody>
-              <tr>
-                <td>Carrier</td>
-                <td>Departs</td>
-                <td>Returns</td>
-              </tr>
-              <tr>
-                <td>
-                  jetBlue
-                </td>
-                <td>Tuesday at 12:00 AM</td>
-                <td>02/22/2017</td>
-              </tr>
-            </tbody>
-          </table>
-          <p class="place-of-interest">
-            Fun things to see in Havana
-          </p>
-          <div class="attractions-wrapper">
-            <div class="attractions-row">
-              <div class="attractions-tile" style="background: linear-gradient(rgba(65, 78, 249, 0.2), rgba(65, 78, 249, 0.2)), url("https://lh6.googleusercontent.com/-Jo_rtgNYd_E/WDoSMWkyQRI/AAAAAAAAB_g/tSk59gfIoTElMtPzEwnyh1WRCeLv00BzwCLIB/s1600-w400/");"></div>
-              <div class="attractions-details">
-                <div>Castillo De Los Tres Reyes Del Morro</div><span class="rating gxyFwO"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i></span><span><span class="tag">establishment</span></span>
-              </div>
-            </div>
-            <div class="attractions-row">
-              <div class="attractions-tile" style="background: linear-gradient(rgba(65, 78, 249, 0.2), rgba(65, 78, 249, 0.2)), url("https://lh6.googleusercontent.com/-aFfopAmyjD8/V-A_4G6CEOI/AAAAAAAGzrs/W4P4RFKCAhEDr5J4bokJ4Rg4R2JoO9G2gCJkC/s1600-w400/");"></div>
-              <div class="attractions-details">
-                <div>José Martí Memorial</div><span class="rating gxyFwO"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></span><span><span class="tag">museum</span>
-                <span class="tag">establishment</span>
-                </span>
-              </div>
-            </div>
-            <div class="attractions-row">
-              <div class="attractions-tile" style="background: linear-gradient(rgba(65, 78, 249, 0.2), rgba(65, 78, 249, 0.2)), url("https://lh3.googleusercontent.com/-gDg89kaSGuw/WH8-lPKRI-I/AAAAAAAArXc/VUpTZ7pBFEYrAD7WpH4pV4rzerdjpQARwCLIB/s1600-w400/");"></div>
-              <div class="attractions-details">
-                <div>Fusterlandia</div><span class="rating gxyFwO"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i></span><span><span class="tag">museum</span>
-                <span class="tag">establishment</span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer">
-        <a><i class="fa fa-expand" aria-hidden="true"></i></a></div>
     </div>
 </div>
+
+<div ng-if="jobsShow.showApplicationModal">
+
+  <form class="messageForm animated zoomIn" ng-submit="jobsShow.apply()">
+    <div class="form-group">
+      <input class="form-control requestMessage" type="text" name="requestMessage" ng-model="jobsShow.application.message" placeholder="Write your message here" >
+    </div>
+    <input class="btn btn-primary btn-block" type="submit" value="Submit">
+  </form>
 </div>
-
-
-<h1>Show</h1>
-<ul>
-  <li>{{ jobsShow.job.title }}</li>
-  <button><a ui-sref="jobsEdit({id: jobsShow.job.id})">Edit</a></button>
-  <button ng-click="jobsShow.delete()">Delete</button>
-  <button><a ui-sref="jobApplications({ id: jobsShow.job.id })">Applications</a></button>
-
-  <button class="btn btn-warning" ng-click="jobsShow.reviewTasker()">Completed</button>
-
-  <button class="btn btn-warning" ng-click="jobsShow.applicationForm()">Apply</button>
-
-  <div>
-    <div class="row lead">
-      <div id="stars" class="starrr"></div>
-      You gave a rating of <span id="count">0</span> star(s)
-    </div>
-    <div ng-if="jobsShow.showReviewModal" class="container">
-      <form class="messageForm animated zoomIn" ng-submit="jobsShow.complete()">
-        <div class="form-group">
-          <input class="form-control requestMessage" type="text" name="reviewMessage" ng-model="jobsShow.review.message" placeholder="Write your message here" >
-        </div>
-        <div>
-          <input class="btn btn-primary btn-block" type="submit" value="Submit">
-        </div>
-      </form>
-    </div>
-  </div>
-
-
-  <div ng-if="jobsShow.showApplicationModal">
-
-    <form class="messageForm animated zoomIn" ng-submit="jobsShow.apply()">
+<div>
+  <div ng-if="jobsShow.showReviewModal" class="container">
+    <form class="messageForm animated zoomIn" ng-submit="jobsShow.complete()">
       <div class="form-group">
-        <input class="form-control requestMessage" type="text" name="requestMessage" ng-model="jobsShow.application.message" placeholder="Write your message here" >
+        <input class="form-control requestMessage" type="text" name="reviewMessage" ng-model="jobsShow.review.message" placeholder="Write your message here" >
       </div>
-      <input class="btn btn-primary btn-block" type="submit" value="Submit">
+      <div>
+        <input class="btn btn-primary btn-block" type="submit" value="Submit">
+      </div>
     </form>
   </div>
-
-</ul>
+</div>

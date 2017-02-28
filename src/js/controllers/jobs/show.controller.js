@@ -1,19 +1,51 @@
 angular
-  .module('jobsApp')
-  .controller('JobsShowCtrl', JobsShowCtrl);
+.module('jobsApp')
+.controller('JobsShowCtrl', JobsShowCtrl);
 
-JobsShowCtrl.$inject = ['Job', '$stateParams', '$state', 'Review'];
+JobsShowCtrl.$inject = ['Job', '$stateParams', '$state', 'Review', 'CurrentUserService'];
 
-function JobsShowCtrl(Job, $stateParams, $state, Review) {
+function JobsShowCtrl(Job, $stateParams, $state, Review, CurrentUserService) {
   const vm = this;
   console.log($stateParams);
-  vm.job = Job.get($stateParams);
+  Job
+  .get($stateParams)
+  .$promise
+  .then(data => {
+    vm.job = data;
+    if (CurrentUserService.currentUser.id === vm.job.owner.id){
+      vm.deleteToggle          = true;
+      vm.editToggle            = true;
+      vm.interestedToggle      = false;
+      vm.applicationsToggle   = true;
+      const dateTimeNow = new Date().toLocaleString();
+      const unixTimeNow = Date.parse(dateTimeNow)/1000;
+      const unixTimeSelected = Date.parse(vm.job.datetime)/1000;
+      if (unixTimeNow > unixTimeSelected) {
+        vm.completedToggle      = true;
+      } else {
+        vm.completedToggle      = false;
+      }
+    } else {
+      vm.deleteToggle          = false;
+      vm.editToggle            = false;
+      vm.interestedToggle      = true;
+      vm.applicationsToggle   = false;
+      vm.completedToggle      = false;
+    }
+  });
 
   vm.delete = function() {
     Job.delete($stateParams).$promise.then(() => {
       $state.go('jobsIndex');
     });
   };
+
+
+  vm.interestedToggle      = true;
+  vm.deleteToggle          = false;
+  vm.editToggle            = false;
+  vm.completedToggle      = false;
+  vm.applicationsToggle   = false;
 
   console.log($stateParams.id);
 
@@ -28,13 +60,13 @@ function JobsShowCtrl(Job, $stateParams, $state, Review) {
     vm.application.job_id = $stateParams.id;
     console.log(vm.application);
     Job
-      .apply(vm.application)
-      .$promise
-      .then((data) => {
-        console.log(data);
-      }, err => {
-        console.log(err);
-      });
+    .apply(vm.application)
+    .$promise
+    .then((data) => {
+      $state.go('jobsIndex');
+    }, err => {
+      console.log(err);
+    });
   };
 
   vm.reviewTasker = reviewTasker;
@@ -47,31 +79,31 @@ function JobsShowCtrl(Job, $stateParams, $state, Review) {
 
   vm.complete = function() {
     const rating = $('#count').html();
-    
+
     vm.job.status = 'finished';
     console.log(vm.job);
 
     Job
-      .update($stateParams, vm.job)
-      .$promise
-      .then(data => {
-        console.log(data);
-      }, err => {
-        console.log(err);
-      });
+    .update($stateParams, vm.job)
+    .$promise
+    .then(data => {
+      $state.go('jobsIndex');
+    }, err => {
+      console.log(err);
+    });
 
     vm.review.rating = rating;
     vm.review.job_id = vm.job.id;
     vm.review.user_id = vm.job.tasker_id;
     console.log(vm.review);
     Review
-      .save(vm.review)
-      .$promise
-      .then(data => {
-        console.log(data);
-      }, err => {
-        console.log(err);
-      });
+    .save(vm.review)
+    .$promise
+    .then(data => {
+      console.log(data);
+    }, err => {
+      console.log(err);
+    });
   };
 
 
@@ -89,7 +121,7 @@ function JobsShowCtrl(Job, $stateParams, $state, Review) {
 
       function Starrr($el, options) {
         var i, _, _ref,
-          _this = this;
+        _this = this;
 
         this.options = $.extend({}, this.defaults, options);
         this.$el = $el;

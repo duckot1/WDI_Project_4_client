@@ -1,6 +1,42 @@
-<h1>User Show</h1>
-<ul>
-  <li>{{ usersShow.user.first_name }}</li>
-  <button><a ui-sref="usersEdit({id: usersShow.user.id})">Edit</a></button>
-  <button ng-click="usersShow.delete()">Delete</button>
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="card-size col-md-6 col-md-offset-3">
+            <div class="card">
+                <div class="card-image" style="height: 480px">
+                    <img class="img-responsive" src="{{usersShow.user.image}}">
+                </div>
+
+                <div class="card-content">
+                    <span class="card-title">{{ usersShow.user.first_name }} {{ usersShow.user.last_name }}</span>
+
+                </div><!-- card content -->
+                <div class="card-action">
+                  <h4>Bio:</h4>
+                  <p>{{usersShow.user.bio}}</p>
+                </div>
+                <div class="card-action">
+                  <h4>Rating:</h4>
+                  <p>{{usersShow.user.rating}}</p>
+                </div>
+                <div class="card-action">
+                  <h4>D.O.B:</h4>
+                  <p>{{usersShow.user.dob}}</p>
+                </div>
+
+                <div class="card-action">
+                  <div class="row lead">
+                    <div id="stars" class="starrr"></div>
+                  </div>
+                </div>
+                <div class="card-action">
+                    <a ng-if="usersShow.editDeleteHide" ui-sref="usersEdit({id: usersShow.user.id})">Edit</a>
+                    <button ng-if="usersShow.editDeleteHide" class="btn btn-new" ng-click="usersShow.delete()">Delete</button>
+                </div><!-- card actions -->
+                <div class="card-reveal">
+                    <span class="card-title">Card Title</span> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div><!-- card reveal -->
+            </div>
+        </div>
+    </div>
+</div>

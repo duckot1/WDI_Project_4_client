@@ -1,20 +1,45 @@
-<h1>Add Job</h1>
-{{ jobsNew.job }}
-<form ng-submit="jobsNew.addJob()">
-  <div class="form-group">
-    <input class="form-control" type="text" name="title" ng-model="jobsNew.job.title" placeholder="Job title">
+<div class="container">
+  <div class="row">
+    <div class="row">
+      <div class="col-sm-8">
+        <form ng-submit="jobsNew.addJob()" role="form">
+          <h4 class="page-header">Job Title</h4>
+          <div class="form-group float-label-control">
+            <input class="form-control" type="text" name="title" ng-model="jobsNew.job.title" placeholder="Job title">
+          </div>
+          <h4 class="page-header">Location</h4>
+          <div class="form-group float-label-control">
+            <input class="form-control" type="text" name="location" ng-model="jobsNew.job.location" placeholder="Location">
+          </div>
+          <h4 class="page-header">Postcode</h4>
+          <div class="form-group float-label-control">
+            <label for="">Profile url</label>
+            <input class="form-control" type="text" name="postcode" ng-model="jobsNew.job.postcode" placeholder="Postcode">
+          </div>
+          <h4 class="page-header">Image</h4>
+          <div class="form-group float-label-control">
+            <input class="form-control" type="text" name="image" ng-model="jobsNew.job.image" placeholder="Image">
+          </div>
+          <h4 class="page-header">Rate (ph)</h4>
+          <div class="form-group float-label-control">
+            <input class="form-control" type="text" name="image" ng-model="jobsNew.job.rate" placeholder="Image">
+          </div>
+          <h4 class="page-header">Description</h4>
+          <div class="form-group float-label-control">
+            <label for="">Description</label>
+            <textarea ng-model="jobsNew.job.description" class="form-control" placeholder="Textarea" rows="1"></textarea>
+          </div>
+          <h4 class="page-header">Pick the date and time:</h4>
+          <div class="input-group date" id="datetimepicker1">
+            <datetimepicker data-ng-model="jobsNew.job.datetime" data-on-set-time="jobsNew.onTimeSet(newDate)" data-datetimepicker-config="{ dropdownSelector: '.dropdown-toggle' }"></datetimepicker>
+          </div>
+          <h4 class="page-header"></h4>
+          <input class="btn btn-primary" type="submit" value="Submit" />
+        </form>
+
+
+
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <input class="form-control" type="text" name="location" ng-model="jobsNew.job.location" placeholder="Location">
-  </div>
-  <div class="form-group">
-    <input class="form-control" type="text" name="postcode" ng-model="jobsNew.job.postcode" placeholder="Postcode">
-  </div>
-  <div class="form-group">
-    <input class="form-control" type="text" name="description" ng-model="jobsNew.job.description" placeholder="Description">
-  </div>
-  <div class="input-group date" id="datetimepicker1">
-    <datetimepicker data-ng-model="jobsNew.job.datetime" data-on-set-time="jobsNew.onTimeSet(newDate)" data-datetimepicker-config="{ dropdownSelector: '.dropdown-toggle' }"></datetimepicker>
-  </div>
-  <input class="btn btn-primary" type="submit" value="Submit" />
-</form>
+</div>

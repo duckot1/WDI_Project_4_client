@@ -1,31 +1,64 @@
-<h1>Register</h1>
-<form ng-submit="register.register()">
-  <div class="form-group">
-    <input class="form-control" type="text" name="firstName" ng-model="register.user.first_name" placeholder="First name">
-  </div>
-  <div class="form-group">
-    <input class="form-control" type="text" name="lastName" ng-model="register.user.last_name" placeholder="Last name">
-  </div>
-  <div class="form-group">
-    <input class="form-control" type="text" name="image" ng-model="register.user.image" placeholder="Image">
-  </div>
-  <div class="form-group">
-    <input class="form-control" type="email" name="email" ng-model="register.user.email" placeholder="Email">
-  </div>
-  <div class="form-group">
-    <input class="form-control" type="password" name="password" ng-model="register.user.password" placeholder="Password">
-  </div>
-  <div class="form-group">
-    <input class="form-control" type="password" name="passwordConfirmation" ng-model="register.user.password_confirmation" placeholder="Password confirmation">
-  </div>
-  <div class="form-group">
-    <input class="form-control" type="text" name="address" ng-model="register.user.address" placeholder="Address">
-  </div>
-  <div class="form-group">
-    <input class="form-control" type="text" name="postcode" ng-model="register.user.postcode" placeholder="Postcode">
-  </div>
-  <div class="form-group">
-    <input class="form-control" type="text" name="dob" ng-model="register.user.dob" placeholder="D.O.B">
-  </div>
-  <input class="btn btn-primary" type="submit" value="Submit" />
-</form>
+<div class="container">
+    <div class="row">
+        <div class="row">
+            <div class="col-sm-8">
+                <form ng-submit="register.register()" role="form">
+                    <h4 class="page-header">First Name</h4>
+                    <div class="form-group float-label-control">
+                        <label for="">First name</label>
+                        <input class="form-control" type="text" name="firstName" ng-model="register.user.first_name" placeholder="First name">
+                    </div>
+                    <h4 class="page-header">Last Name</h4>
+                    <div class="form-group float-label-control">
+                        <label for="">Last Name</label>
+                          <input class="form-control" type="text" name="lastName" ng-model="register.user.last_name" placeholder="Last name">
+                    </div>
+                    <h4 class="page-header">Profile Picture</h4>
+                    <div class="form-group float-label-control">
+                        <label for="">Profile url</label>
+                          <input class="form-control" type="text" name="image" ng-model="register.user.image" placeholder="Image">
+                    </div>
+                    <h4 class="page-header">Email</h4>
+                    <div class="form-group float-label-control">
+                        <label for="">Email</label>
+                          <input class="form-control" type="email" name="email" ng-model="register.user.email" placeholder="Email">
+                    </div>
+                    <h4 class="page-header">Password</h4>
+                    <div class="form-group float-label-control">
+                        <label for="">Password</label>
+                          <input class="form-control" type="password" name="password" ng-model="register.user.password" placeholder="Password">
+                    </div>
+                    <h4 class="page-header">Password Confirmation</h4>
+                    <div class="form-group float-label-control">
+                        <label for="">Password</label>
+                          <input class="form-control" type="password" name="passwordConfirmation" ng-model="register.user.password_confirmation" placeholder="Password confirmation">
+                    </div>
+                    <h4 class="page-header">Address</h4>
+                    <div class="form-group float-label-control">
+                        <label for="">Address</label>
+                          <input class="form-control" type="text" name="address" ng-model="register.user.address" placeholder="Address">
+                    </div>
+                    <h4 class="page-header">Postcode</h4>
+                    <div class="form-group float-label-control">
+                        <label for="">Postcode</label>
+                          <input class="form-control" type="text" name="postcode" ng-model="register.user.postcode" placeholder="Postcode">
+                    </div>
+                    <h4 class="page-header">D.O.B</h4>
+                    <div class="form-group float-label-control">
+                        <label for="">DOB</label>
+                          <input class="form-control" type="text" name="dob" ng-model="register.user.dob" placeholder="D.O.B">
+                    </div>
+                    <h4 class="page-header">Bio</h4>
+                    <div class="form-group float-label-control">
+                        <label for="">Bio</label>
+                        <textarea ng-model="register.user.bio" class="form-control" placeholder="Textarea" rows="1"></textarea>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Submit" />
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

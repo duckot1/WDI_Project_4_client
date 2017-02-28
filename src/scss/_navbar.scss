@@ -55,7 +55,13 @@ body {
   position: relative;
   min-height: 100%;
   height: 100%;
+  max-width: 100%;
 }
+
+main {
+  width: 800px;
+}
+
 body {
   font-family: 'RobotoDraft', 'Roboto', 'Helvetica Neue, Helvetica, Arial', sans-serif;
   font-style: normal;
@@ -133,7 +139,7 @@ body {
 .constructor {
   position: relative;
   margin: 0;
-  padding: 0 50px;
+  padding: 0 10px;
   -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
   -o-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
   transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
@@ -237,10 +243,10 @@ body {
   content: "\e610";
 }
 .sidebar .sidebar-image img {
-  width: 54px;
-  height: 54px;
+  width: 100px;
+  height: 100px;
   margin: 16px;
-  border-radius: 50%;
+  border-radius: 0px;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -309,17 +315,23 @@ body {
   margin: 8px 0;
   padding: 0;
   overflow: hidden;
+  text-align: center;
 }
+
+.nav-option {
+  text-align: center;
+}
+
 .sidebar .sidebar-text {
   display: block;
   height: 48px;
   line-height: 48px;
   padding: 0;
   padding-left: 16px;
-  padding-right: 56px;
+  padding-right: 28px;
   text-decoration: none;
   clear: both;
-  font-weight: 500;
+  font-weight: 550;
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
@@ -364,6 +376,29 @@ body {
   position: relative;
   list-style-type: none;
 }
+
+.profile-button {
+  height: 75px;
+}
+
+#profile-link {
+  height: 75px;
+  vertical-align: middle;
+  line-height: 80px;
+  text-align: left;
+  font-size: 20px;
+}
+
+.nav-profile {
+  border-radius: 50%;
+  width: 50px;
+  height: 61px;
+  margin-right: 30px;
+  float: left;
+  margin-top: 6px;
+  margin-left: 6px;
+  border: 2px solid #f5f5f5;
+}
 .sidebar .sidebar-nav li a {
   position: relative;
   cursor: pointer;
@@ -373,10 +408,10 @@ body {
   line-height: 48px;
   padding: 0;
   padding-left: 16px;
-  padding-right: 56px;
+  padding-right: 28px;
   text-decoration: none;
   clear: both;
-  font-weight: 500;
+  font-weight: 550;
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
@@ -505,7 +540,7 @@ body {
   background-color: #e0e0e0;
 }
 .sidebar-inverse {
-  background-color: #212121;
+  background-color: #222f3d;
 }
 .sidebar-inverse .sidebar-header {
   background-color: #eceff1;

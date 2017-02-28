@@ -1,1 +1,15 @@
-<h1>HELLLLOO</h1>
+<div class="services">
+<div ng-repeat="job in active.jobs" class="col-md-5">
+    <figure class="snip1174 navy col-md-5">
+      <img src="{{ job.image }}" alt="sq-sample33" style="max-height: 200px;" />
+      <figcaption>
+        <h2>{{ job.title }}</h2>
+        <p>
+          £{{ job.rate }} ph
+        </p>
+        <a ui-sref="jobsShow({id: job.id})">View</a>
+      </figcaption>
+    </figure>
+</div>
+
+</div>

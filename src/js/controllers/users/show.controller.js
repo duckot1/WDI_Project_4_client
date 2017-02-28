@@ -7,12 +7,18 @@ UsersShowCtrl.$inject = ['User', '$stateParams', '$state', 'CurrentUserService',
 function UsersShowCtrl(User, $stateParams, $state, CurrentUserService, Review) {
   const vm = this;
 
+  vm.editDeleteHide = false;
+
   User
   .get($stateParams)
   .$promise
   .then(data => {
     console.log(data);
     vm.user = data;
+    if(vm.user.id === CurrentUserService.currentUser.id){
+      vm.editDeleteHide = true;
+      console.log(vm.editDeleteHide);
+    }
   }, err => {
     console.log(err);
   });
