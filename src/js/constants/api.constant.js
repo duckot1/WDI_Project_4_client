@@ -1,3 +1,3 @@
 angular
   .module('jobsApp')
-  .constant('API', 'http://localhost:3000');
+  .constant('API', 'https://something-api.herokuapp.com');
