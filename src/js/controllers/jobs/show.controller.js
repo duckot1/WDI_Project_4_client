@@ -77,6 +77,11 @@ function JobsShowCtrl(Job, $stateParams, $state, Review, CurrentUserService) {
 
   vm.review = {};
 
+  vm.ratingTest = function() {
+    const rating = $('#count').html();
+    console.log(rating);
+  };
+
   vm.complete = function() {
     const rating = $('#count').html();
 

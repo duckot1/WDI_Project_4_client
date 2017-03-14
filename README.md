@@ -6,7 +6,6 @@ In the 2 months leading up to the course, after I handed my notice in at my prev
 
 When using Task Rabbit the user has to create two online profiles, one for applying for jobs and one for posting jobs. I thought that this could be simplified. My aim was to create an app where the user would sign up once and be able to both post and apply for jobs.
 
-##How to use the site
 
 ## Planning
 Having learned from my previous projects at GA I was determined to put as much planning as possible into this project. I wanted to have a very clear image in my head as to what the site looked and how it was structured. On day 1 I spent some time on Balsamiq developing wireframes and am happy to say that I stuck these.
@@ -24,7 +23,7 @@ The app was built using a Ruby on Rails back end and an AngularJS set up on the 
 <li>Ruby on Rails</li>
 <li>AngularJS</li>
 <li>SCSS</li>
-<li></li>
-<li>HTML5</li>
+<li>jwt</li>
+<li>Bootstrap</li>
 <ul>
 
