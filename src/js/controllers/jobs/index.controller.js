@@ -6,6 +6,13 @@ JobsIndexCtrl.$inject = ['Job'];
 
 function JobsIndexCtrl(Job) {
   const vm = this;
-  vm.jobs = Job.query();
+  Job
+    .query()
+    .$promise.
+    then(data => {
+      vm.jobs = data;
+    }, err => {
+      console.log(err);
+    });
   console.log(vm.jobs);
 }

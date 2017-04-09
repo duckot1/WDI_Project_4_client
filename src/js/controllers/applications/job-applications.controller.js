@@ -31,6 +31,7 @@ function JobApplicationsCtrl(Job, Request, $stateParams, $state) {
     .update(id, application)
     .$promise
     .then(data => {
+      console.log(data);
       $state.go('dashboard');
     }, err => {
       console.log(err);

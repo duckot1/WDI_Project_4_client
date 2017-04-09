@@ -11,15 +11,19 @@ function JobsShowCtrl(Job, $stateParams, $state, Review, CurrentUserService) {
   .get($stateParams)
   .$promise
   .then(data => {
+    console.log(data);
     vm.job = data;
     if (CurrentUserService.currentUser.id === vm.job.owner.id){
       vm.deleteToggle          = true;
       vm.editToggle            = true;
       vm.interestedToggle      = false;
       vm.applicationsToggle   = true;
-      const dateTimeNow = new Date().toLocaleString();
+      const dateTimeNow = new Date();
+      console.log(dateTimeNow);
       const unixTimeNow = Date.parse(dateTimeNow)/1000;
+      console.log(unixTimeNow);
       const unixTimeSelected = Date.parse(vm.job.datetime)/1000;
+      console.log(unixTimeSelected);
       if (unixTimeNow > unixTimeSelected) {
         vm.completedToggle      = true;
       } else {
@@ -83,7 +87,8 @@ function JobsShowCtrl(Job, $stateParams, $state, Review, CurrentUserService) {
   };
 
   vm.complete = function() {
-    const rating = $('#count').html();
+    var rating = $('#count').html();
+    rating = parseInt(rating);
 
     vm.job.status = 'finished';
     console.log(vm.job);
@@ -99,7 +104,7 @@ function JobsShowCtrl(Job, $stateParams, $state, Review, CurrentUserService) {
 
     vm.review.rating = rating;
     vm.review.job_id = vm.job.id;
-    vm.review.user_id = vm.job.tasker_id;
+    vm.review.user_id = vm.job.tasker.id;
     console.log(vm.review);
     Review
     .save(vm.review)
